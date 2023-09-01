@@ -1,7 +1,9 @@
 package cadastrofornecedores.Entities;
 
+import cadastrofornecedores.DTO.FornecedorDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +16,34 @@ public class Fornecedores {
     @NotBlank
     private String razaoSocial;
 
-    @NotBlank @OneToMany(mappedBy = "fornecedores")
+    private String endereco;
+
+    @NotNull
+    @OneToMany(mappedBy = "fornecedores")
     private List<Contato> contatos;
 
     public Fornecedores(){
 
     }
-    public Fornecedores(Long id, String razaoSocial, List<Contato> contatos) {
+    public Fornecedores(Long id, String razaoSocial,String endereco, List<Contato> contatos) {
         this.id = id;
         this.razaoSocial = razaoSocial;
         this.contatos = contatos;
+    }
+
+    public Fornecedores(FornecedorDTO fornecedorDTO) {
+        this.id = fornecedorDTO.getId();
+        this.razaoSocial = fornecedorDTO.getRazaoSocial();
+        this.endereco = fornecedorDTO.getEndereco();
+        this.contatos = fornecedorDTO.getContatos();
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public Long getId() {
