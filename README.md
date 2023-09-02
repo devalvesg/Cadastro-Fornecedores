@@ -46,9 +46,10 @@ Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [Postman](ht
 
 
 
-- POST /fornecedores
 <h4>Caso o usuario tente fazer cadastro de um fornecedor sem passar pelo menos UM contato, terá um Bad Request e retornara a mensagem "O fornecedor deve ter pelo menos 1(UM) contato"</h4>
 <img src="./assets/Post com erro POSTMAN.png" alt="Erro na requisição no Postman" />
+- POST /fornecedores
+
 ```
 http://localhost:8080/fornecedores
 
@@ -63,7 +64,7 @@ body:
     "contato" : [{}]
 }
 ```
-```
+
 <h4>Quando o usuário solicita ver todos os fornecedores cadastros, ele retorna dessa forma:</h4>
 <img src="./assets/Screenshot_5.png" alt="Requisição GET no Postman" />
 
