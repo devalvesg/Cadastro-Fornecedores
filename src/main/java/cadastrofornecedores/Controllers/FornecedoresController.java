@@ -26,10 +26,25 @@ public class FornecedoresController {
         return ResponseEntity.ok(fornecedores);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity findById(@PathVariable("id") Long id){
+        Fornecedores fornecedor = fornecedoresService.findById(id);
+        return ResponseEntity.ok(fornecedor);
+    }
+
     @PostMapping
     public ResponseEntity novoFornecedor(@RequestBody @Valid FornecedorDTO fornecedorDTO){
+        try {
         Fornecedores fornecedor = new Fornecedores(fornecedorDTO);
         fornecedoresService.novoFornecedor(fornecedor);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(fornecedor);
+        }catch (Exception e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O fornecedor deve ter pelo menos 1(UM) contato");
+        }
+    }
+
+    public ResponseEntity deletarFornecedor(@RequestBody Long id){
+        fornecedoresService.deletarFornecedor(id);
+        return ResponseEntity.ok(fornecedoresService.findById(id));
     }
 }

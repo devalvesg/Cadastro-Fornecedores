@@ -1,5 +1,6 @@
 package cadastrofornecedores.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,10 +9,16 @@ import jakarta.validation.constraints.NotNull;
 public class Contato {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String nome;
+    @NotBlank
     private String email;
-    @ManyToOne @JoinColumn(name = "fornecedor_id") @NotNull
+    @ManyToOne @JoinColumn(name = "fornecedor_id") @JsonIgnore
     private Fornecedores fornecedores;
+
+    public Contato(){
+
+    }
 
     public Contato(String nome, String email, Fornecedores fornecedores) {
         this.nome = nome;

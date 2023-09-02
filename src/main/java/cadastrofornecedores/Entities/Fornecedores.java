@@ -13,20 +13,18 @@ import java.util.Objects;
 public class Fornecedores {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+
     private String razaoSocial;
 
     private String endereco;
 
-    @NotNull
-    @OneToMany(mappedBy = "fornecedores")
+    @OneToMany(mappedBy = "fornecedores") @NotNull
     private List<Contato> contatos;
 
     public Fornecedores(){
 
     }
-    public Fornecedores(Long id, String razaoSocial,String endereco, List<Contato> contatos) {
-        this.id = id;
+    public Fornecedores(String razaoSocial,String endereco, List<Contato> contatos) {
         this.razaoSocial = razaoSocial;
         this.contatos = contatos;
     }
