@@ -62,10 +62,10 @@ body:
     "endereco" : "Rua Bela Vista, 356, Centro, Curitiba/PR",
     "contato" : [{}]
 }
-
+```
 <h4>Quando o usuário solicita ver todos os fornecedores cadastros, ele retorna dessa forma:</h4>
 <img src="./assets/Screenshot_5.png" alt="Requisição GET no Postman" />
-```
+
 - GET /fornecedores
 ```
 http://localhost:8080/fornecedores
@@ -88,10 +88,10 @@ Content-Type: application/json
             }
         ]
     }
-
+```
 <h4>Quando o usuário solicita deletar algum fornecedor, ele retorna dessa forma:</h4>
 <img src="./assets/DELETE.png" alt="Requisição DELETE no Postman" />
-```
+
 
 - DELETE /fornecedores/{id}
 ```
