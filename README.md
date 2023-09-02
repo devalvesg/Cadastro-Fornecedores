@@ -63,6 +63,7 @@ body:
     "contato" : [{}]
 }
 ```
+```
 <h4>Quando o usuário solicita ver todos os fornecedores cadastros, ele retorna dessa forma:</h4>
 <img src="./assets/Screenshot_5.png" alt="Requisição GET no Postman" />
 
