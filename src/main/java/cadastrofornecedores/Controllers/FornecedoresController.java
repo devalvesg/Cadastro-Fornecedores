@@ -43,8 +43,9 @@ public class FornecedoresController {
         }
     }
 
-    public ResponseEntity deletarFornecedor(@RequestBody Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarFornecedor(@PathVariable("id")  Long id){
         fornecedoresService.deletarFornecedor(id);
-        return ResponseEntity.ok(fornecedoresService.findById(id));
+        return ResponseEntity.ok("Fornecedor removido com sucesso");
     }
 }

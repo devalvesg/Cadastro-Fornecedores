@@ -4,14 +4,16 @@ import cadastrofornecedores.Entities.Contato;
 import cadastrofornecedores.Entities.Fornecedores;
 import cadastrofornecedores.Repository.ContatoRepository;
 import cadastrofornecedores.Repository.FornecedoresRepository;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
 
-@Service
+@Service @Transactional
 public class FornecedoresService {
     @Autowired
     private FornecedoresRepository fornecedoresRepository;
@@ -37,6 +39,7 @@ public class FornecedoresService {
             contatoRepository.save(contato);
         }
     }
+    @Modifying
     public void deletarFornecedor(Long id) {
         contatoRepository.deleteContatos(id);
         fornecedoresRepository.deleteById(id);

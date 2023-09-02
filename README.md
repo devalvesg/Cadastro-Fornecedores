@@ -66,9 +66,9 @@ body:
 <h4>Quando o usuário solicita ver todos os fornecedores cadastros, ele retorna dessa forma:</h4>
 <img src="./assets/Screenshot_5.png" alt="Requisição GET no Postman" />
 ```
-- GET http://localhost:8080/games
+- GET /fornecedores
 ```
-http :8080/games
+http://localhost:8080/fornecedores
 HTTP/1.1 200 OK
 Content-Length: 129
 Content-Type: application/json
@@ -88,39 +88,21 @@ Content-Type: application/json
             }
         ]
     }
+
+<h4>Quando o usuário solicita deletar algum fornecedor, ele retorna dessa forma:</h4>
+<img src="./assets/DELETE.png" alt="Requisição DELETE no Postman" />
 ```
 
-- GET /games/{id}
+- DELETE /fornecedores/{id}
 ```
-http :8080/games/10
+http://localhost:8080/fornecedores
 HTTP/1.1 200 OK
 Content-Length: 129
 Content-Type: application/json
 
 {
-    "id": 10,
-    "title": "Cuphead",
-    "year": 2017,
-    "genre": "Platform",
-    "platforms": "XBox, Playstation, PC",
-    "score": 4.6,
-    "imgUrl": "https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/9.png",
-    "shortDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit esse officiis corrupti unde repellat non quibusdam! Id nihil itaque ipsum!",
-    "longDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorum illum placeat eligendi, quis maiores veniam. Incidunt dolorum, nisi deleniti dicta odit voluptatem nam provident temporibus reprehenderit blanditiis consectetur tenetur. Dignissimos blanditiis quod corporis iste, aliquid perspiciatis architecto quasi tempore ipsam voluptates ea ad distinctio, sapiente qui, amet quidem culpa."
+   Fornecedor removido com sucesso
 }
 
 ```
 
-- PUT http://localhost:8080/games/10
-```
-http PUT : http://localhost:8080/games/10
-HTTP/1.1 200 OK
-Content-Length: 142
-Content-Type: application/json
-Body: 
-
-{
-    "score": 4.1
-}
-
-```
